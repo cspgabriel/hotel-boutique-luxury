@@ -140,12 +140,12 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
             <div className="max-w-2xl">
-              <span className="eyebrow">Acomodações</span>
-              <h2 className="section-title mb-4">
-                Suítes desenhadas para a contemplação e o descanso profundo.
+              <span className="eyebrow">Acomodações & Suítes</span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-hotel-navy-950 leading-snug mb-3">
+                Acomodações desenhadas para o descanso pleno.
               </h2>
-              <p className="section-subtitle">
-                Espaços generosos banhados por luz natural, enxoval nobre e decks integrados à vista de Búzios.
+              <p className="text-sm sm:text-base text-hotel-slate-800 font-normal leading-relaxed max-w-xl">
+                Espaços generosos banhados por luz natural, enxoval nobre e decks privativos integrados à brisa da Ferradura.
               </p>
             </div>
             <Link href="/acomodacoes" className="btn-secondary shrink-0 inline-flex items-center gap-2 self-start md:self-auto">

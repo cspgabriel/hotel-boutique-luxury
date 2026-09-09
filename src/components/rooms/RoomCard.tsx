@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Maximize2, Users, Bed, Eye, ArrowRight, Calendar, Sparkles } from 'lucide-react';
+import { ArrowRight, Calendar, Sparkles } from 'lucide-react';
 import { RoomCategory } from '@/types/hotel';
 import { formatCurrency } from '@/lib/utils';
 import { trackBookingCtaClick, trackRoomView } from '@/lib/analytics';
@@ -28,90 +28,87 @@ export const RoomCard: React.FC<RoomCardProps> = ({ room, onBookNow }) => {
   };
 
   return (
-    <article className="group bg-white border border-hotel-sand-200/80 overflow-hidden shadow-sm hover:shadow-luxury transition-all duration-500 flex flex-col">
-      {/* Imagem Imersiva com Badge */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-hotel-slate-900">
+    <article className="group bg-white border border-hotel-sand-200 overflow-hidden shadow-sm hover:shadow-luxury transition-all duration-300 flex flex-col h-full">
+      {/* 1. Fotografia 100% Desobstruída (sem tags e sem preços sobre a imagem) */}
+      <Link
+        href={`/acomodacoes/${room.slug}`}
+        onClick={handleDetailsClick}
+        className="relative aspect-[16/10] overflow-hidden bg-hotel-slate-900 block"
+        aria-label={`Ver detalhes de ${room.name}`}
+      >
         <img
           src={room.coverImage.url}
           alt={room.coverImage.alt}
           loading="lazy"
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+      </Link>
 
-        {/* Metragem e Vista Flutuante */}
-        <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-          <span className="px-2.5 py-1 bg-white/90 backdrop-blur-md text-[10px] uppercase tracking-wider font-medium text-hotel-navy-950">
-            {room.sizeM2} m²
-          </span>
-          <span className="px-2.5 py-1 bg-hotel-navy-950/80 backdrop-blur-md text-[10px] uppercase tracking-wider font-medium text-white">
-            {room.viewType}
-          </span>
-        </div>
-
-        {/* Período / Tarifa Flutuante na Imagem */}
-        <div className="absolute bottom-4 right-4 text-right">
-          <span className="text-[10px] uppercase tracking-wider text-white/80 block">A partir de</span>
-          <span className="text-lg sm:text-xl font-serif text-white font-medium drop-shadow-md">
-            {formatCurrency(room.startingPrice)}
-            <span className="text-xs font-sans font-light text-white/80"> /noite</span>
-          </span>
-        </div>
-      </div>
-
-      {/* Conteúdo Editorial da Acomodação */}
-      <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+      {/* 2. Conteúdo Editorial Estruturado e Acessível */}
+      <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-hotel-gold-600 block mb-1">
+          {/* Eyebrow de Categoria / Tagline com alto contraste */}
+          <span className="text-[11px] uppercase tracking-[0.2em] font-semibold text-hotel-gold-700 block mb-1.5">
             {room.tagline}
           </span>
-          <h3 className="font-serif text-xl sm:text-2xl text-hotel-navy-950 font-normal mb-3 group-hover:text-hotel-gold-700 transition-colors">
+
+          {/* Título Completo sem Truncamento (com altura mínima para alinhamento uniforme) */}
+          <h3 className="font-serif text-xl sm:text-2xl text-hotel-navy-950 font-normal leading-snug min-h-[3.5rem] flex items-start group-hover:text-hotel-gold-700 transition-colors">
             <Link href={`/acomodacoes/${room.slug}`} onClick={handleDetailsClick}>
               {room.name}
             </Link>
           </h3>
 
-          <p className="text-xs sm:text-sm text-hotel-slate-800/80 leading-relaxed font-light mb-6 line-clamp-2">
+          {/* Especificações Visuais em Linha Limpa */}
+          <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-hotel-slate-800 font-medium py-2.5 border-y border-hotel-sand-200/80 mb-3.5">
+            <span>{room.sizeM2} m²</span>
+            <span className="text-hotel-sand-400">•</span>
+            <span>Até {room.maxGuests} hóspedes</span>
+            <span className="text-hotel-sand-400">•</span>
+            <span>{room.bedType.split('(')[0]}</span>
+            <span className="text-hotel-sand-400">•</span>
+            <span className="text-hotel-navy-950 font-semibold">{room.viewType}</span>
+          </div>
+
+          {/* Tarifa em Destaque Visual Limpo e Claro */}
+          <div className="mb-3.5 flex items-baseline gap-1.5">
+            <span className="text-xs text-hotel-slate-700 font-normal">A partir de</span>
+            <span className="font-serif text-2xl sm:text-3xl font-medium text-hotel-navy-950">
+              {formatCurrency(room.startingPrice)}
+            </span>
+            <span className="text-xs text-hotel-slate-700 font-normal">/noite</span>
+          </div>
+
+          {/* Descrição com Alto Contraste (WCAG compliant) */}
+          <p className="text-xs sm:text-sm text-hotel-slate-800 leading-relaxed font-normal mb-4">
             {room.shortDescription}
           </p>
 
-          {/* Especificações Visuais Rápidas */}
-          <div className="grid grid-cols-2 gap-2 py-3 border-y border-hotel-sand-200 text-xs text-hotel-slate-800 font-light mb-6">
-            <div className="flex items-center gap-2">
-              <Users className="w-3.5 h-3.5 text-hotel-gold-600 shrink-0" />
-              <span>Até {room.maxGuests} hóspedes</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Bed className="w-3.5 h-3.5 text-hotel-gold-600 shrink-0" />
-              <span className="truncate">{room.bedType.split('(')[0]}</span>
-            </div>
-          </div>
-
-          {/* Cortesia da Reserva Direta */}
+          {/* Cortesia da Reserva Direta em Box Suave */}
           {room.directBookingPerk && (
-            <div className="flex items-start gap-2 bg-hotel-sand-50 p-2.5 mb-6 text-[11px] text-hotel-slate-800 border-l-2 border-hotel-gold-500">
-              <Sparkles className="w-3.5 h-3.5 text-hotel-gold-600 shrink-0 mt-0.5" />
+            <div className="flex items-start gap-2 bg-emerald-50/70 p-2.5 text-xs text-emerald-900 border-l-2 border-emerald-600 mb-2 font-medium">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
               <span><strong>Benefício Direto:</strong> {room.directBookingPerk}</span>
             </div>
           )}
         </div>
 
-        {/* Botões de Ação com Dupla Intenção */}
-        <div className="grid grid-cols-2 gap-3 pt-2">
+        {/* 3. Botões de Ação Imediatamente Visíveis (sem depender de hover) */}
+        <div className="grid grid-cols-2 gap-3 pt-2 border-t border-hotel-sand-200/60">
           <Link
             href={`/acomodacoes/${room.slug}`}
             onClick={handleDetailsClick}
-            className="btn-secondary text-center text-[10px] py-3 px-3 flex items-center justify-center gap-1.5"
+            className="btn-secondary text-center text-xs py-3 px-3 flex items-center justify-center gap-1.5 font-medium"
           >
-            <span>Conhecer</span>
-            <ArrowRight className="w-3 h-3" />
+            <span>Ver Detalhes</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
 
           <button
             onClick={handleBookClick}
-            className="btn-primary text-center text-[10px] py-3 px-3 flex items-center justify-center gap-1.5"
+            className="btn-primary text-center text-xs py-3 px-3 flex items-center justify-center gap-1.5 font-medium"
           >
-            <Calendar className="w-3 h-3" />
+            <Calendar className="w-3.5 h-3.5 text-hotel-gold-400" />
             <span>Reservar</span>
           </button>
         </div>

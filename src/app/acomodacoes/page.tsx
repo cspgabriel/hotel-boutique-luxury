@@ -25,7 +25,7 @@ export default function RoomsPage() {
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-hotel-navy-950 font-normal leading-[1.12] mb-6">
             O conforto absoluto desenhado em sintonia com o mar.
           </h1>
-          <p className="text-base sm:text-lg text-hotel-slate-800/80 font-light leading-relaxed">
+          <p className="text-base sm:text-lg text-hotel-slate-800 font-normal leading-relaxed">
             Cada suíte foi concebida para oferecer privacidade, amplitude e integração sensorial com a natureza da Ferradura. Escolha o refúgio perfeito para seus dias de descanso.
           </p>
         </div>

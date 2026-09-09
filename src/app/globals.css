@@ -21,35 +21,35 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 bg-hotel-navy-900 text-white hover:bg-hotel-gold-600 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-hotel-gold-500 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-6 sm:px-7 py-3 text-xs uppercase tracking-[0.18em] font-semibold transition-all duration-300 bg-hotel-navy-950 text-white hover:bg-hotel-gold-600 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-hotel-gold-500 focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 border border-hotel-slate-800 text-hotel-slate-900 hover:bg-hotel-slate-900 hover:text-white active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-hotel-slate-400 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center px-6 sm:px-7 py-3 text-xs uppercase tracking-[0.18em] font-semibold transition-all duration-300 border border-hotel-slate-800 text-hotel-slate-950 hover:bg-hotel-slate-900 hover:text-white active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-hotel-slate-800 focus:ring-offset-2;
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 bg-hotel-gold-500 text-white hover:bg-hotel-gold-600 active:scale-[0.99] shadow-sm;
+    @apply inline-flex items-center justify-center px-6 sm:px-7 py-3 text-xs uppercase tracking-[0.18em] font-semibold transition-all duration-300 bg-hotel-gold-500 text-white hover:bg-hotel-gold-600 active:scale-[0.99] shadow-sm;
   }
 
   .btn-white {
-    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 bg-white text-hotel-slate-900 hover:bg-hotel-sand-100 active:scale-[0.99] shadow-sm;
+    @apply inline-flex items-center justify-center px-6 sm:px-7 py-3 text-xs uppercase tracking-[0.18em] font-semibold transition-all duration-300 bg-white text-hotel-navy-950 hover:bg-hotel-sand-100 active:scale-[0.99] shadow-sm;
   }
 
   .eyebrow {
-    @apply text-[11px] uppercase tracking-[0.25em] font-medium text-hotel-gold-600 block mb-3;
+    @apply text-[11px] uppercase tracking-[0.22em] font-semibold text-hotel-gold-700 block mb-2.5;
   }
 
   .section-title {
-    @apply font-serif text-3xl sm:text-4xl lg:text-5xl text-hotel-navy-950 font-normal leading-[1.15];
+    @apply font-serif text-2xl sm:text-3xl lg:text-4xl text-hotel-navy-950 font-normal leading-[1.2];
   }
 
   .section-subtitle {
-    @apply text-base sm:text-lg text-hotel-slate-800/80 font-light leading-relaxed max-w-2xl;
+    @apply text-sm sm:text-base text-hotel-slate-800 font-normal leading-relaxed max-w-2xl;
   }
 }
 
-/* Otimização para acessibilidade - prefers-reduced-motion */
+/* Acessibilidade WCAG - prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
