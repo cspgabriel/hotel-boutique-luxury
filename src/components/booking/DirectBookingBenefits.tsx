@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
+
 import { ShieldCheck, Sparkles, Clock, Coffee, MessageSquareHeart, Check, ArrowRight } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { trackBookingCtaClick } from '@/lib/analytics';

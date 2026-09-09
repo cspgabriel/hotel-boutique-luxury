@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowRight, Leaf, Sparkles, HeartHandshake, ShieldCheck } from 'lucide-react';
+
+import { Leaf, Sparkles, HeartHandshake } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { DirectBookingBenefits } from '@/components/booking/DirectBookingBenefits';

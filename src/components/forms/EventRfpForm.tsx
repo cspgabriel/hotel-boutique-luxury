@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Loader2, Users, Calendar, Building2 } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { trackFormSubmission } from '@/lib/analytics';
 
 export const EventRfpForm: React.FC = () => {

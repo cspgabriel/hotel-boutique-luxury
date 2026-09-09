@@ -843,3 +843,25 @@ export const hotelConfig: HotelConfig = {
     metaPixelId: '123456789012345',
   },
 };
+
+/**
+ * Override de canal para builds de demonstracao.
+ *
+ * Numa publicacao como demo (ver DemoBanner), o WhatsApp do hotel ficticio nao
+ * deve receber mensagens: o numero pode pertencer a um terceiro real e o lead
+ * interessado precisa chegar a quem vende o site. Definir
+ * NEXT_PUBLIC_DEMO_WHATSAPP redireciona todos os CTAs para o canal comercial.
+ */
+const demoWhatsapp = process.env.NEXT_PUBLIC_DEMO_WHATSAPP;
+if (demoWhatsapp) {
+  hotelConfig.hotelInfo.whatsapp = demoWhatsapp;
+  hotelConfig.hotelInfo.whatsappFormatted =
+    process.env.NEXT_PUBLIC_DEMO_WHATSAPP_FORMATTED ?? demoWhatsapp;
+}
+
+const demoPhone = process.env.NEXT_PUBLIC_DEMO_PHONE;
+if (demoPhone) {
+  hotelConfig.hotelInfo.phone = demoPhone;
+  hotelConfig.hotelInfo.phoneFormatted =
+    process.env.NEXT_PUBLIC_DEMO_PHONE_FORMATTED ?? demoPhone;
+}

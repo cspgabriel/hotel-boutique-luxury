@@ -1,23 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import {
-  ArrowRight,
-  ShieldCheck,
-  Award,
-  Sparkles,
-  MapPin,
-  Utensils,
-  Compass,
-  Star,
-  CheckCircle2,
-} from 'lucide-react';
+import { ArrowRight, Award, Sparkles, MapPin, Star } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { BookingBar } from '@/components/booking/BookingBar';
 import { DirectBookingBenefits } from '@/components/booking/DirectBookingBenefits';
 import { RoomCard } from '@/components/rooms/RoomCard';
 import { ReviewCard } from '@/components/ui/ReviewCard';
 import { FAQAccordion } from '@/components/ui/FAQAccordion';
-import { formatCurrency } from '@/lib/utils';
+
 
 export default function HomePage() {
   const { hero, about, rooms, experiences, dining, offers, location, socialProof, faqs, hotelInfo } =

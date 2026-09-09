@@ -99,3 +99,41 @@ Você poderá editar:
 - **`rooms`:** Inserir novas categorias, alterar metragens, fotos, comodidades e valores "a partir de".
 - **`offers`:** Criar novos pacotes sazonais com cupons promocionais.
 - **`dining` & `experiences`:** Atualizar pratos do chef, horários de funcionamento e experiências.
+
+---
+
+## Publicação em sub-pasta (modo demo)
+
+Além do deploy standalone no domínio do hotel, o template pode ser embutido em
+outro site estático — é assim que ele serve como demo comercial em
+[meuhotelonline](https://github.com/cspgabriel/meuhotelonline) sob
+`/demo/boutique/`.
+
+Todas as variáveis são lidas em tempo de build e são opcionais: sem nenhuma
+delas, o comportamento é exatamente o de antes (site standalone, indexável).
+
+| Variável | Efeito |
+|---|---|
+| `NEXT_PUBLIC_BASE_PATH` | Define `basePath` + `assetPrefix` (ex.: `/demo/boutique`) |
+| `NEXT_PUBLIC_DEMO_BANNER` | Exibe a faixa de demonstração e força `noindex` |
+| `NEXT_PUBLIC_DEMO_BANNER_HREF` | Destino do link "Ver a oferta real" na faixa |
+| `NEXT_PUBLIC_DEMO_WHATSAPP` / `_FORMATTED` | Substitui o WhatsApp em todos os CTAs |
+| `NEXT_PUBLIC_DEMO_PHONE` / `_FORMATTED` | Substitui os links `tel:` |
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/demo/boutique \
+NEXT_PUBLIC_DEMO_BANNER=1 \
+NEXT_PUBLIC_DEMO_WHATSAPP=55DDNUMERO \
+NEXT_PUBLIC_DEMO_PHONE=+55DDNUMERO \
+npm run build
+```
+
+Ao publicar como demo, sempre defina os overrides de contato: os números do
+hotel fictício em `src/data/hotel.config.ts` podem pertencer a terceiros reais.
+
+## Novo cliente
+
+O conteúdo do site está inteiro em `src/data/hotel.config.ts`. Para um novo
+hotel, duplique o repo e substitua esse arquivo — nenhuma alteração de
+componente é necessária. Antes de entregar, troque os hotlinks do Unsplash por
+imagens próprias otimizadas e com licença verificada.

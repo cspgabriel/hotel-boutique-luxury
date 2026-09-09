@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Link from 'next/link';
+
 import { MessageCircle, Phone } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';

@@ -2,18 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import {
-  Users,
-  Maximize2,
-  Bed,
-  Eye,
-  Calendar,
-  Sparkles,
-  ShieldCheck,
-  CheckCircle2,
-  ArrowRight,
-  MessageCircle,
-} from 'lucide-react';
+import { Users, Maximize2, Bed, Eye, Calendar, Sparkles, ShieldCheck, CheckCircle2, MessageCircle } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { RoomAmenitiesGrid } from '@/components/rooms/RoomAmenitiesGrid';

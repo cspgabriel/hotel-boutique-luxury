@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { MapPin, Navigation, Car, Plane, Phone, MessageCircle } from 'lucide-react';
+import { MapPin, Navigation, Car, Plane, MessageCircle } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { DirectBookingBenefits } from '@/components/booking/DirectBookingBenefits';

@@ -2,11 +2,11 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Calendar, Tag, CheckCircle2, ShieldCheck, ArrowRight, MessageCircle } from 'lucide-react';
+import { Calendar, CheckCircle2, MessageCircle } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { DirectBookingBenefits } from '@/components/booking/DirectBookingBenefits';
-import { formatCurrency, buildWhatsAppBookingLink } from '@/lib/utils';
+import { formatCurrency } from '@/lib/utils';
 
 interface OfferDetailPageProps {
   params: {

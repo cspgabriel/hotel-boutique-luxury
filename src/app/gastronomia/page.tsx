@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Utensils, Clock, Wine, Coffee, Sparkles, MessageCircle, ArrowRight } from 'lucide-react';
+import { Utensils } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { DirectBookingBenefits } from '@/components/booking/DirectBookingBenefits';

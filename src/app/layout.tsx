@@ -3,8 +3,15 @@ import './globals.css';
 import { hotelConfig } from '@/data/hotel.config';
 import { getHotelSchema } from '@/lib/schema';
 import { ClientLayoutShell } from '@/components/layout/ClientLayoutShell';
+import { DemoBanner } from '@/components/layout/DemoBanner';
 
 const { hotelInfo, hero } = hotelConfig;
+
+/**
+ * Modo demo: publicacao como vitrine comercial (ex.: /demo/boutique).
+ * Forca noindex para o hotel ficticio nunca competir em busca com clientes reais.
+ */
+const isDemo = Boolean(process.env.NEXT_PUBLIC_DEMO_BANNER);
 
 export const viewport: Viewport = {
   themeColor: '#0F1D2F',
@@ -32,10 +39,10 @@ export const metadata: Metadata = {
   creator: hotelInfo.name,
   publisher: hotelInfo.name,
   robots: {
-    index: true,
+    index: !isDemo,
     follow: true,
     googleBot: {
-      index: true,
+      index: !isDemo,
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
@@ -86,6 +93,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-hotel-sand-50 text-hotel-slate-900">
+        <DemoBanner />
         <ClientLayoutShell>{children}</ClientLayoutShell>
       </body>
     </html>

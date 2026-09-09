@@ -4,7 +4,7 @@ import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { RoomCard } from '@/components/rooms/RoomCard';
 import { DirectBookingBenefits } from '@/components/booking/DirectBookingBenefits';
-import { Sparkles, ShieldCheck } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 const { hotelInfo, rooms } = hotelConfig;
 

@@ -1,5 +1,5 @@
 import { hotelConfig } from '@/data/hotel.config';
-import { RoomCategory, SpecialOffer, FAQItem } from '@/types/hotel';
+import { RoomCategory, FAQItem } from '@/types/hotel';
 
 export function getHotelSchema() {
   const { hotelInfo } = hotelConfig;

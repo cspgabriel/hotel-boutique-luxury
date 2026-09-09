@@ -31,7 +31,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
 
         {/* Título do Depoimento */}
         <h4 className="font-serif text-base sm:text-lg text-hotel-navy-950 font-normal mb-2 leading-snug">
-          "{review.title}"
+          &ldquo;{review.title}&rdquo;
         </h4>
 
         {/* Texto do Depoimento */}

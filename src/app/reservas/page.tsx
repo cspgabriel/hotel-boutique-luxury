@@ -1,32 +1,13 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import Link from 'next/link';
-import {
-  Calendar,
-  Users,
-  ShieldCheck,
-  Sparkles,
-  CheckCircle2,
-  XCircle,
-  ArrowRight,
-  MessageCircle,
-  ExternalLink,
-  Bed,
-  Maximize2,
-} from 'lucide-react';
+
+import { Calendar, Users, ShieldCheck, Sparkles, CheckCircle2, XCircle } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
 import { DirectBookingBenefits } from '@/components/booking/DirectBookingBenefits';
-import {
-  formatCurrency,
-  formatShortDate,
-  calculateNights,
-  getTodayDateString,
-  getFutureDateString,
-  buildWhatsAppBookingLink,
-} from '@/lib/utils';
+import { formatCurrency, formatShortDate, calculateNights, getTodayDateString, getFutureDateString, buildWhatsAppBookingLink } from '@/lib/utils';
 import { trackBookingCtaClick } from '@/lib/analytics';
 
 function ReservasContent() {
@@ -41,7 +22,7 @@ function ReservasContent() {
   const [checkIn, setCheckIn] = useState<string>(initialCheckIn);
   const [checkOut, setCheckOut] = useState<string>(initialCheckOut);
   const [guests, setGuests] = useState<number>(initialGuests);
-  const [selectedRoomSlug, setSelectedRoomSlug] = useState<string>(initialRoom);
+  const [selectedRoomSlug] = useState<string>(initialRoom);
   const [promoCode, setPromoCode] = useState<string>(initialPromo);
 
   const { hotelInfo, rooms, bookingEngine } = hotelConfig;
@@ -50,7 +31,7 @@ function ReservasContent() {
   // Filtragem de acomodações que comportam o número de hóspedes
   const availableRooms = rooms.filter((r) => r.maxGuests >= guests);
 
-  const handleBookEngine = (roomSlug: string, roomName: string, estimatedTotal: number) => {
+  const handleBookEngine = (roomSlug: string, roomName: string) => {
     trackBookingCtaClick('reservas_engine_redirect', roomSlug);
 
     // Se o hotel tiver engine externa configurada (Omnibees, Cloudbeds, etc.)
@@ -303,7 +284,7 @@ function ReservasContent() {
                     </div>
 
                     <button
-                      onClick={() => handleBookEngine(room.slug, room.name, estimatedTotal)}
+                      onClick={() => handleBookEngine(room.slug, room.name)}
                       className="btn-primary w-full sm:w-auto lg:w-full py-3.5 flex items-center justify-center gap-2 bg-hotel-navy-950 hover:bg-hotel-gold-600 text-white"
                     >
                       <Sparkles className="w-3.5 h-3.5 text-hotel-gold-400" />

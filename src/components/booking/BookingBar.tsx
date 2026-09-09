@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Calendar, Users, Home, Search, Tag, ArrowRight } from 'lucide-react';
+import { Calendar, Users, Home, Search, Tag } from 'lucide-react';
 import { getTodayDateString, getFutureDateString, calculateNights } from '@/lib/utils';
 import { trackBookingSearch } from '@/lib/analytics';
-import { hotelConfig } from '@/data/hotel.config';
+
 
 interface BookingBarProps {
   className?: string;

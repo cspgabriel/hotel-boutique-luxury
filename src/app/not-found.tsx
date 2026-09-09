@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Compass, Home, Bed, ArrowRight } from 'lucide-react';
+import { Compass, Home, Bed } from 'lucide-react';
 import { hotelConfig } from '@/data/hotel.config';
 
 export default function NotFound() {

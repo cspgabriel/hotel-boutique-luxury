@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap items-center gap-6 text-xs text-white/70">
             <div className="flex items-center gap-2.5 bg-white/5 px-4 py-2.5 rounded-none border border-white/10">
               <Award className="w-4 h-4 text-hotel-gold-400 shrink-0" />
-              <span>TripAdvisor Travellers' Choice 2025</span>
+              <span>TripAdvisor Travellers&rsquo; Choice 2025</span>
             </div>
             <div className="flex items-center gap-2.5 bg-white/5 px-4 py-2.5 rounded-none border border-white/10">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />

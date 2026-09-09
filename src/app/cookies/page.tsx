@@ -1,12 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { hotelConfig } from '@/data/hotel.config';
 import { Breadcrumb } from '@/components/layout/Breadcrumb';
-import { Shield, Settings, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function CookiesPage() {
-  const { hotelInfo } = hotelConfig;
 
   const [savedPrefs, setSavedPrefs] = useState({
     necessary: true,
