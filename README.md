@@ -5,6 +5,9 @@
 > Projetado especificamente para **aumentar reservas diretas**, eliminar o custo de comissões de OTAs (Booking, Expedia, Decolar), encantar com direção de arte editorial de luxo e guiar o hóspede na jornada:  
 > **Desejo → Descoberta → Confiança → Comparação → Disponibilidade → Reserva.**
 
+- 🌐 **URL de Produção Cloudflare:** [https://hotel-boutique-luxury.pages.dev](https://hotel-boutique-luxury.pages.dev)
+- 🐙 **Repositório Oficial GitHub:** [https://github.com/cspgabriel/hotel-boutique-luxury](https://github.com/cspgabriel/hotel-boutique-luxury)
+
 ---
 
 ## 🌟 Principais Recursos & Pilares Implementados
