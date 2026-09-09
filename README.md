@@ -149,7 +149,14 @@ npm run localize-images
 
 # 4. porta de qualidade — falha se sobrou qualquer marca do template
 npm run validate:client
+
+# 5. publica na conta Cloudflare do próprio cliente
+CLOUDFLARE_ACCOUNT_ID=<id> CLOUDFLARE_API_TOKEN=<token> npm run deploy:client -- --project pousada-recanto
 ```
+
+O passo 5 valida antes de subir, mostra conta e projeto de destino, e recusa a
+Global API Key do cliente. Veja [docs/onboarding-cloudflare.md](docs/onboarding-cloudflare.md)
+para o passo a passo que o cliente segue ao criar a conta e o token.
 
 ### Por que a porta de qualidade existe
 
