@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-hotel-sand-50 text-hotel-slate-900 selection:bg-hotel-gold-200 selection:text-hotel-slate-950;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, .font-serif {
+    letter-spacing: -0.015em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 bg-hotel-navy-900 text-white hover:bg-hotel-gold-600 active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-hotel-gold-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 border border-hotel-slate-800 text-hotel-slate-900 hover:bg-hotel-slate-900 hover:text-white active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-hotel-slate-400 focus:ring-offset-2;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 bg-hotel-gold-500 text-white hover:bg-hotel-gold-600 active:scale-[0.99] shadow-sm;
+  }
+
+  .btn-white {
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 bg-white text-hotel-slate-900 hover:bg-hotel-sand-100 active:scale-[0.99] shadow-sm;
+  }
+
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-[0.25em] font-medium text-hotel-gold-600 block mb-3;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl sm:text-4xl lg:text-5xl text-hotel-navy-950 font-normal leading-[1.15];
+  }
+
+  .section-subtitle {
+    @apply text-base sm:text-lg text-hotel-slate-800/80 font-light leading-relaxed max-w-2xl;
+  }
+}
+
+/* Otimização para acessibilidade - prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
