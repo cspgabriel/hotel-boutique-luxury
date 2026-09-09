@@ -135,5 +135,37 @@ hotel fictício em `src/data/hotel.config.ts` podem pertencer a terceiros reais.
 
 O conteúdo do site está inteiro em `src/data/hotel.config.ts`. Para um novo
 hotel, duplique o repo e substitua esse arquivo — nenhuma alteração de
-componente é necessária. Antes de entregar, troque os hotlinks do Unsplash por
-imagens próprias otimizadas e com licença verificada.
+componente é necessária.
+
+```bash
+# 1. prepara o config: aplica o nome e marca o resto com TODO_
+npm run new-client -- "Pousada Recanto da Serra" --cidade "Petrópolis" --uf RJ
+
+# 2. preencha os TODO_ e reescreva copy, quartos, ofertas e FAQ
+#    (a referência preenchida fica em hotel.config.ts.template.bak)
+
+# 3. baixa, otimiza e passa a servir as imagens localmente
+npm run localize-images
+
+# 4. porta de qualidade — falha se sobrou qualquer marca do template
+npm run validate:client
+```
+
+### Por que a porta de qualidade existe
+
+O modo de falha caro não é o site quebrado: é o site bonito que entra no ar com
+o telefone do demo, o CNPJ fictício ou as fotos hotlinkadas. O
+`validate:client` sai com código 1 se detectar nome, contatos, CNPJ, endereço,
+IDs de analytics ou imagens remotas do template — e aponta o que fazer em cada
+caso. Rode antes de toda entrega.
+
+### Imagens
+
+`localize-images` baixa cada imagem remota do config, converte para WebP
+(largura máxima 2000px, qualidade 78), reescreve o config para `/images/*.webp`
+e gera `public/images/CREDITS.md` com a URL de origem de cada arquivo. É
+idempotente: rodar de novo não rebaixa o que já existe.
+
+**A licença não vem junto com o download.** O `CREDITS.md` existe para você
+conferir a origem de cada foto antes de publicar um site pago — uma URL
+acessível não é permissão de uso comercial.

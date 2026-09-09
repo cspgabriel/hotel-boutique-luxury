@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Referencia local gerada por scripts/new-client.mjs
+*.template.bak
